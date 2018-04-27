@@ -1,6 +1,7 @@
-webpackJsonp([2],{
+var GUI =
+webpackJsonpGUI([2],{
 
-/***/ 510:
+/***/ 575:
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -10,33 +11,29 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(12);
+var _reactDom = __webpack_require__(13);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _reactRedux = __webpack_require__(7);
+var _reactRedux = __webpack_require__(6);
 
-var _appStateHoc = __webpack_require__(21);
-
-var _appStateHoc2 = _interopRequireDefault(_appStateHoc);
-
-var _controls = __webpack_require__(30);
+var _controls = __webpack_require__(34);
 
 var _controls2 = _interopRequireDefault(_controls);
 
-var _blocks = __webpack_require__(95);
+var _blocks = __webpack_require__(105);
 
 var _blocks2 = _interopRequireDefault(_blocks);
 
-var _gui = __webpack_require__(24);
+var _gui = __webpack_require__(26);
 
 var _gui2 = _interopRequireDefault(_gui);
 
-var _projectLoaderHoc = __webpack_require__(31);
+var _projectLoaderHoc = __webpack_require__(28);
 
 var _projectLoaderHoc2 = _interopRequireDefault(_projectLoaderHoc);
 
-var _blocksOnly = __webpack_require__(511);
+var _blocksOnly = __webpack_require__(576);
 
 var _blocksOnly2 = _interopRequireDefault(_blocksOnly);
 
@@ -63,7 +60,7 @@ var BlocksOnly = function BlocksOnly(props) {
     );
 };
 
-var App = (0, _appStateHoc2.default)((0, _projectLoaderHoc2.default)(BlocksOnly));
+var App = (0, _projectLoaderHoc2.default)(BlocksOnly);
 
 var appTarget = document.createElement('div');
 document.body.appendChild(appTarget);
@@ -72,11 +69,11 @@ _reactDom2.default.render(_react2.default.createElement(App, null), appTarget);
 
 /***/ }),
 
-/***/ 511:
+/***/ 576:
 /***/ (function(module, exports, __webpack_require__) {
 
 
-var content = __webpack_require__(512);
+var content = __webpack_require__(577);
 
 if(typeof content === 'string') content = [[module.i, content, '']];
 
@@ -123,7 +120,7 @@ if(false) {
 
 /***/ }),
 
-/***/ 512:
+/***/ 577:
 /***/ (function(module, exports, __webpack_require__) {
 
 exports = module.exports = __webpack_require__(2)(false);
@@ -131,14 +128,14 @@ exports = module.exports = __webpack_require__(2)(false);
 
 
 // module
-exports.push([module.i, ".blocks-only_controls_1gHLl {\n    position: absolute;\n    z-index: 2;\n    top: 10px;\n    right: 15px;\n}\n", ""]);
+exports.push([module.i, ".blocks-only_controls_1Fuds {\r\n    position: absolute;\r\n    z-index: 2;\r\n    top: 10px;\r\n    right: 15px;\r\n}\r\n", ""]);
 
 // exports
 exports.locals = {
-	"controls": "blocks-only_controls_1gHLl"
+	"controls": "blocks-only_controls_1Fuds"
 };
 
 /***/ })
 
-},[510]);
+},[575]);
 //# sourceMappingURL=blocksonly.js.map
