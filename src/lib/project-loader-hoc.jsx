@@ -1,9 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
 import analytics from './analytics';
 import log from './log';
 import storage from './storage';
+import firebase from 'firebase';
+import config from '../../config.js';
+
+import Login from '../customComponents/login.jsx';
 
 /* Higher Order Component to provide behavior for loading projects by id from
  * the window's hash (#this part in the url) or by projectId prop passed in from
@@ -20,10 +23,18 @@ const ProjectLoaderHOC = function (WrappedComponent) {
             this.state = {
                 projectId: null,
                 projectData: null,
-                fetchingProject: false
+                fetchingProject: false,
+                user: false
             };
         }
+        componentWillMount (){
+            if (firebase.apps.length === 0) firebase.initializeApp(config);
+            const that = this;
+            firebase.auth().onAuthStateChanged(user => user ? that.setState({user: true}) : '');
+        }
+
         componentDidMount () {
+    
             window.addEventListener('hashchange', this.updateProject);
             this.updateProject();
         }
@@ -62,12 +73,14 @@ const ProjectLoaderHOC = function (WrappedComponent) {
                 }
             }
         }
+
         render () {
             const {
                 projectId, // eslint-disable-line no-unused-vars
                 ...componentProps
             } = this.props;
             if (!this.state.projectData) return null;
+            if (!(this.state.user)) return (<Login />)
             return (
                 <WrappedComponent
                     fetchingProject={this.state.fetchingProject}

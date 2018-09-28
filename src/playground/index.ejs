@@ -3,9 +3,46 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="shortcut icon" href="static/favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <style>
 
+    body{
+      background: #f15d4f;
+    }
+
+    li.firebaseui-list-item {
+    list-style: none;
+    display: grid;
+    width: 19rem;
+    }
+
+
+    span.firebaseui-idp-text.firebaseui-idp-text-short {
+       display: none;
+    }
+
+    button.firebaseui-idp-button.mdl-button.mdl-js-button.mdl-button--raised.firebaseui-idp-google.firebaseui-id-idp-button {
+      background: indianred;
+      border: none;
+      border-bottom: 5px;
+      box-shadow: 1px 1px 2px 0px hsl(0, 0%, 8%);
+      color: white;
+      font-size: 2rem;
+    }
+
+    img.firebaseui-idp-icon {
+      display: none;
+    }
+
+    ul.firebaseui-idp-list {
+      display: grid;
+    }
+
+
+
+    </style>
     <!-- Sentry error logging to help with finding bugs -->
     <script src="https://cdn.ravenjs.com/3.22.1/raven.min.js" crossorigin="anonymous"></script>
     <script>
@@ -15,5 +52,6 @@
 
   </head>
   <body>
+  <!--Copyright (c) 2016, Massachusetts Institute of Technology All rights reserved. -->
   </body>
 </html>

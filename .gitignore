@@ -1,6 +1,9 @@
 # Mac OS
 .DS_Store
 
+#config
+config.js
+
 # NPM
 /node_modules
 npm-*

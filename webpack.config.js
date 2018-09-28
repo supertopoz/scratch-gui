@@ -16,7 +16,8 @@ const base = {
     devServer: {
         contentBase: path.resolve(__dirname, 'build'),
         host: '0.0.0.0',
-        port: process.env.PORT || 8601
+        port: process.env.PORT || 8601,
+        historyApiFallback: true
     },
     output: {
         library: 'GUI',
@@ -61,12 +62,56 @@ const base = {
             }]
         }]
     },
-    plugins: [].concat(process.env.NODE_ENV === 'production' ? [
-        new webpack.optimize.UglifyJsPlugin({
-            include: /\.min\.js$/,
-            minimize: true
-        })
-    ] : [])
+    plugins: [
+        new webpack.DefinePlugin({
+            'process.env.NODE_ENV': '"' + process.env.NODE_ENV + '"',
+            'process.env.DEBUG': Boolean(process.env.DEBUG)
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'lib',
+            filename: 'lib.min.js'
+        }),
+        new HtmlWebpackPlugin({
+            chunks: ['lib', 'gui'],
+            template: 'src/index.ejs',
+            title: 'Amazing Code 3.0'
+        }),
+        new HtmlWebpackPlugin({
+            chunks: ['lib', 'blocksonly'],
+            template: 'src/index.ejs',
+            filename: 'blocks-only.html',
+            title: 'Scratch 3.0 GUI: Blocks Only Example'
+        }),
+        new HtmlWebpackPlugin({
+            chunks: ['lib', 'compatibilitytesting'],
+            template: 'src/index.ejs',
+            filename: 'compatibility-testing.html',
+            title: 'Scratch 3.0 GUI: Compatibility Testing'
+        }),
+        new HtmlWebpackPlugin({
+            chunks: ['lib', 'player'],
+            template: 'src/index.ejs',
+            filename: 'player.html',
+            title: 'Scratch 3.0 GUI: Player Example'
+        }),
+        new CopyWebpackPlugin([{
+            from: 'static',
+            to: 'static'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'node_modules/scratch-blocks/media',
+            to: 'static/blocks-media'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'extensions/**',
+            to: 'static',
+            context: 'src/examples'
+        }]),
+        new CopyWebpackPlugin([{
+            from: 'extension-worker.{js,js.map}',
+            context: 'node_modules/scratch-vm/dist/web'
+        }])
+    ]
 };
 
 module.exports = (

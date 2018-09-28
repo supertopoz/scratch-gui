@@ -1,0 +1,35 @@
+@import "../css/colors.css";
+@import "../css/units.css";
+
+.account-info-wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0 .5rem;
+    align-items: center;
+    margin-top: 0.25rem;
+}
+
+.profile-icon {
+    margin: 0 .25rem;
+    width: 1.7rem;
+    border-radius: 0.25rem;
+}
+
+.logout {
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: cornflowerblue;
+    padding: 6px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.logout:hover {
+    background-color: steelblue;
+    cursor: pointer;
+}
+
+.divider {
+    margin: 0 .5rem;
+    height: 34px;
+}

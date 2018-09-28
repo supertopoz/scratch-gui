@@ -2,7 +2,7 @@ import bindAll from 'lodash.bindall';
 import PropTypes from 'prop-types';
 import React from 'react';
 import {connect} from 'react-redux';
-
+import firebase from 'firebase';
 /**
  * Project saver component passes a saveProject function to its child.
  * It expects this child to be a function with the signature
@@ -30,9 +30,8 @@ class ProjectSaver extends React.Component {
 
         this.props.vm.saveProjectSb3().then(content => {
             const url = window.URL.createObjectURL(content);
-
             saveLink.href = url;
-
+            
             // TODO user-friendly project name
             // File name: project-DATE-TIME
             const date = new Date();
